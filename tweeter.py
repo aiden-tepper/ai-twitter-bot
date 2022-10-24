@@ -1,16 +1,17 @@
 import tweepy, time
 import openai, json
+import tokens
 
-CONSUMER_KEY = 'LdqSOsAUKYT10OtNmNNiqxmbi'
-CONSUMER_SECRET = 'vZ1EG4kZkRMHMLR0p4nQf54EPDr41P2LNLQXLAmS2nW2lEWNR1'
-ACCESS_TOKEN = '2360233446-hRskwevgp1SDuJ62MWYDOas3TRX50PGApRPJJoC'
-ACCESS_SECRET = 'kJ9GQ3IuzwxSut5SHqbSPRxemp8GEWo3vkAaRRHSFBtwR'
+CONSUMER_KEY = tokens.CONSUMER_KEY
+CONSUMER_SECRET = tokens.CONSUMER_SECRET
+ACCESS_TOKEN = tokens.ACCESS_TOKEN
+ACCESS_SECRET = tokens.ACCESS_SECRET
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 api = tweepy.API(auth)
 
-openai.api_key = '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'
+openai.api_key = tokens.OPENAI_KEY
 
 while True:
     response = openai.Completion.create(
